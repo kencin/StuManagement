@@ -26,10 +26,18 @@ int main()
 	{
 		Student m_stu;
 			int choice;
+			char str[20];
 			menu();
 			do {
 				cout << "请输入指令:" ;
 				cin >> choice;
+				while (!cin)                //判断choice是否输入的是整数，如果是正确类型,cin=0
+				{
+					cin.clear();                //清空cin流
+					cin >> str;                  //赋值错误输入到str
+					cout << "请输入正确的指令：" << endl;
+					cin >> choice;
+				}         
 				switch (choice) {
 				case 1: u1.login(); break;
 				case 2: u1.show(); break;
